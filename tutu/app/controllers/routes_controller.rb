@@ -20,4 +20,24 @@ class RoutesController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @route = Route.find(params[:id])
+  end
+
+  def update
+    @route = Route.find(params[:id])
+
+    if @route.update(route_params)
+      redirect_to @route
+    else
+      render :edit
+    end
+  end
+
+  private
+
+  def route_params
+    params.require(:route).permit(:route_name)
+  end
 end
