@@ -1,6 +1,7 @@
 class RailwayStation < ApplicationRecord
   validates :title, presence: true
 
+  # Station has many trains and belongs to many routes
   # Trains
   has_many :trains, foreign_key: :current_station_id
 
