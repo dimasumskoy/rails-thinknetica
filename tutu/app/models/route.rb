@@ -1,6 +1,4 @@
 class Route < ApplicationRecord
-  validates :name, presence: true
-
   # Route has many stations and trains
   # Stations
   has_many :railway_stations_routes
@@ -8,4 +6,6 @@ class Route < ApplicationRecord
 
   # Trains
   has_many :trains
+
+  validates :name, presence: true
 end
