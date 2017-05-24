@@ -1,6 +1,32 @@
 <p>
-  <strong>Route name:</strong>
+  <strong>Route:</strong>
   <%= @route.name %>
+</p>
+
+<p>
+    <strong>Trains on the route:</strong>
+    <ul>
+        <% if @route.trains.any? %>
+            <% @route.trains.each do |train| %>
+                <li><%= train.number %></li>
+            <% end %>
+        <% else %>
+            Поездов на маршруте нет
+        <% end %>
+    </ul>
+</p>
+
+<p>
+    <strong>Stations in the route:</strong>
+    <ul>
+        <% if @route.railway_stations.any? %>
+            <% @route.railway_stations.each do |station| %>
+                <li><%= station.title %></li>
+            <% end %>
+        <% else %>
+            Станций в маршруте нет
+        <% end %>
+    </ul>
 </p>
 
 <%= link_to 'Edit', edit_route_path(@route) %> |
