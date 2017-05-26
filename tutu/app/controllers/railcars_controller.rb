@@ -45,6 +45,6 @@ class RailcarsController < ApplicationController
   end
 
   def railcar_params
-    params.require(:railcar).permit(:railcar_type)
+    params.require(:railcar).permit(:category)
   end
 end

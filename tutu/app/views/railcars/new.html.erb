@@ -1,26 +1,5 @@
 <h1>New Railcar</h1>
 
-<%= form_with(model: @railcar, local: true) do |form| %>
-  <% if @railcar.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@railcar.errors.count, "error") %> prohibited this railcar from being saved:</h2>
-
-      <ul>
-      <% @railcar.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :railcar_type %>
-    <%= form.text_field :railcar_type %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<%= render 'form', railcar: @railcar %>
 
 <%= link_to 'Back', railcars_path %>
