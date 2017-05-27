@@ -18,5 +18,15 @@
     <%= "Купейных вагонов: #{coupe_railcars.size}" %>
 </p>
 
+<p>
+    Общее количество мест в плацкартных вагонах:
+    <%= render 'seats_amount', railcar_type: platzkart_railcars %>
+</p>
+
+<p>
+    Общее количество мест в купейных вагонах:
+    <%= render 'seats_amount', railcar_type: coupe_railcars %> 
+</p>
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
