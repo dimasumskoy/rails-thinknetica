@@ -7,6 +7,16 @@
   </div>
 
   <div class="field">
+    <%= form.label :top_seats %>
+    <%= number_field :railcar, :top_seats, in: 1.0..27.0 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bottom_seats %>
+    <%= number_field :railcar, :bottom_seats, in: 1.0..27.0 %>
+  </div>
+
+  <div class="field">
     <%= form.label :train %>
     <%= form.collection_select :train_id, Train.all, :id, :number %>
   </div>
