@@ -3,5 +3,11 @@
   <%= @railcar.kind %>
 </p>
 
+<p>
+	<%= "Train: #{@railcar.train.number}" %><br>
+	<%= "Top seats: #{@railcar.top_seats}" %><br>
+	<%= "Bottom seats: #{@railcar.bottom_seats}" %>
+</p>
+
 <%= link_to 'Edit', edit_railcar_path(@railcar) %> |
 <%= link_to 'Back', railcars_path %>
