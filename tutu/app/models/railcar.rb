@@ -1,3 +1,3 @@
 class Railcar < ApplicationRecord
-  validates :category, presence: true
+  validates :kind, presence: true
 end
