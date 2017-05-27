@@ -11,5 +11,12 @@
     <% end %>
 </p>
 
+<p>
+    <% platzkart_railcars = @train.railcars.select { |railcar| railcar.kind == "плацкарт".downcase } %>
+    <% coupe_railcars = @train.railcars.select { |railcar| railcar.kind == "купе".downcase } %>
+    <%= "Плацкартных вагонов: #{platzkart_railcars.size}" %><br>
+    <%= "Купейных вагонов: #{coupe_railcars.size}" %>
+</p>
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
