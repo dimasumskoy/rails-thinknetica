@@ -1,0 +1,4 @@
+<ul>
+    <li><%= "Верхние: #{railcar_type.reduce(0) { |total, railcar| total += railcar.top_seats }}" %></li>
+    <li><%= "Нижние:  #{railcar_type.reduce(0) { |total, railcar| total += railcar.bottom_seats }}" %></li>
+</ul>

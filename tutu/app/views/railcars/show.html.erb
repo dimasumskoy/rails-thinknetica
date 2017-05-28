@@ -1,9 +1,13 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Type:</strong>
-  <%= @railcar.railcar_type %>
+  <strong>Тип:</strong>
+  <%= @railcar.kind %>
 </p>
 
-<%= link_to 'Edit', edit_railcar_path(@railcar) %> |
-<%= link_to 'Back', railcars_path %>
+<p>
+    <%= "Поезд: #{@railcar.train.number}" %><br>
+	<%= "Верхние места: #{@railcar.top_seats}" %><br>
+	<%= "Нижние места: #{@railcar.bottom_seats}" %>
+</p>
+
+<%= link_to 'Редактировать', edit_railcar_path(@railcar) %> |
+<%= link_to 'Назад', railcars_path %>

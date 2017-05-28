@@ -1,3 +1,5 @@
 class Railcar < ApplicationRecord
-  validates :railcar_type, presence: true
+  belongs_to :train
+
+  validates :kind, presence: true
 end

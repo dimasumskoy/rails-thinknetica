@@ -1,10 +1,10 @@
 <p>
-  <strong>Route:</strong>
+  <strong>Маршрут:</strong>
   <%= @route.name %>
 </p>
 
 <p>
-    <strong>Trains on the route:</strong>
+    <strong>Поезда на маршруте:</strong>
     <ul>
         <% if @route.trains.any? %>
             <% @route.trains.each do |train| %>
@@ -17,7 +17,7 @@
 </p>
 
 <p>
-    <strong>Stations in the route:</strong>
+    <strong>Станции в маршруте:</strong>
     <ul>
         <% if @route.railway_stations.any? %>
             <% @route.railway_stations.each do |station| %>
@@ -29,5 +29,5 @@
     </ul>
 </p>
 
-<%= link_to 'Edit', edit_route_path(@route) %> |
-<%= link_to 'Back', routes_path %>
+<%= link_to 'Редактировать', edit_route_path(@route) %> |
+<%= link_to 'Назад', routes_path %>

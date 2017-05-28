@@ -1,5 +1,5 @@
 <p>
-  <strong>Number:</strong>
+  <strong>Номер:</strong>
   <%= @train.number %>
 </p>
 
@@ -11,5 +11,22 @@
     <% end %>
 </p>
 
-<%= link_to 'Edit', edit_train_path(@train) %> |
-<%= link_to 'Back', trains_path %>
+<p>
+    <% platzkart_railcars = @train.railcars.select { |railcar| railcar.kind == "плацкарт".downcase } %>
+    <% coupe_railcars = @train.railcars.select { |railcar| railcar.kind == "купе".downcase } %>
+    <%= "Плацкартных вагонов: #{platzkart_railcars.size}" %><br>
+    <%= "Купейных вагонов: #{coupe_railcars.size}" %>
+</p>
+
+<p>
+    Общее количество мест в плацкартных вагонах:
+    <%= render 'seats_amount', railcar_type: platzkart_railcars %>
+</p>
+
+<p>
+    Общее количество мест в купейных вагонах:
+    <%= render 'seats_amount', railcar_type: coupe_railcars %> 
+</p>
+
+<%= link_to 'Редактировать', edit_train_path(@train) %> |
+<%= link_to 'Назад', trains_path %>
