@@ -8,4 +8,12 @@ class RailwayStation < ApplicationRecord
   has_many :routes, through: :railway_stations_routes
 
   validates :title, presence: true
+
+  def update_position(route, position)
+    if route.railway_stations.include?(self)
+      self.railway_stations_routes.where(route: route).update(railway_station_position_id: position)
+    else
+      puts "The route doesn't contain this station"
+    end
+  end
 end
