@@ -2,6 +2,7 @@ class Railcar < ApplicationRecord
   belongs_to :train
 
   validates :number, presence: true, uniqueness: { scope: :train_id }
+  validates :type, presence: true
 
   before_validation :set_number
 

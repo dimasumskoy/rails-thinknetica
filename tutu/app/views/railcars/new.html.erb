@@ -1,5 +1,5 @@
 <h1>Новый вагон</h1>
 
-<%= render 'form', railcar: @railcar %>
+<%= render 'form', railcar: @railcar.becomes(Railcar) %>
 
 <%= link_to 'Назад', railcars_path %>
