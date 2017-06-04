@@ -11,5 +11,18 @@
     <% end %>
 </p>
 
+<p>
+    Вагоны:
+    <ul>
+        <% if @train.railcars.any? %>
+            <% @train.railcars.each do |railcar| %>
+                <li><%= link_to "#{railcar.number}", railcar.becomes(Railcar) %></li>
+            <% end %>
+        <% else %>
+            У поезда нет вагонов
+        <% end %>
+    </ul>
+</p>
+
 <%= link_to 'Редактировать', edit_train_path(@train) %> |
 <%= link_to 'Назад', trains_path %>

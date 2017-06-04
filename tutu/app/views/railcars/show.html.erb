@@ -1,12 +1,32 @@
+<% top_seats = "Верхние места: #{@railcar.top_seats}" %>
+<% bottom_seats = "Нижние места: #{@railcar.bottom_seats}" %>
+<% side_top_seats = "Боковые верхние места: #{@railcar.side_top_seats}" %>
+<% side_bottom_seats = "Боковые нижние места: #{@railcar.side_bottom_seats}" %>
+<% sitting_seats = "Сидячие места: #{@railcar.sitting_seats}" %>
+
 <p>
   <strong>Тип:</strong>
   <%= @railcar.type %>
 </p>
 
 <p>
-    <%= "Поезд: #{@railcar.train.number}" %><br>
-	<%= "Верхние места: #{@railcar.top_seats}" %><br>
-	<%= "Нижние места: #{@railcar.bottom_seats}" %>
+    <%= "Поезд: #{@railcar.train.number}" %>
+    <ul>
+    <% case @railcar.type %>
+    <% when "CoupeRailcar" %>
+        <li><%= top_seats %></li>
+        <li><%= bottom_seats %></li>
+    <% when "EconomyRailcar" %>
+        <li><%= top_seats %></li>
+        <li><%= bottom_seats %></li>
+        <li><%= side_top_seats %></li>
+        <li><%= side_bottom_seats %></li>
+    <% when "ComfortRailcar" %>
+        <li><%= bottom_seats %></li>
+    <% when "SittingRailcar" %>
+        <li><%= sitting_seats %></li>
+    <% end %>
+    </ul>
 </p>
 
 <%= link_to 'Редактировать', edit_railcar_path(@railcar) %> |
