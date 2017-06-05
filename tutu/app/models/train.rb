@@ -8,11 +8,15 @@ class Train < ApplicationRecord
   validates :number, presence: true
 
   def sort_railcars
-    sorted = self.railcars.sort_by { |railcar| railcar.number }
+    sorted = self.railcars.order(:number)
     if sorting_from_head
       sorted
     else
       sorted.reverse
     end
+  end
+
+  def show_seats(railcar_type, seat_type)
+    self.railcars.where(type: railcar_type).inject(0) { |sum, railcar| sum + railcar.send(seat_type.to_sym) }
   end
 end
