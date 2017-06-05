@@ -15,7 +15,7 @@
     Вагоны:
     <ul>
         <% if @train.railcars.any? %>
-            <% @train.railcars.each do |railcar| %>
+            <% @sorted_railcars.each do |railcar| %>
                 <li><%= link_to "#{railcar.number}", railcar.becomes(Railcar) %></li>
             <% end %>
         <% else %>

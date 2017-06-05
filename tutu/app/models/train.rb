@@ -6,4 +6,12 @@ class Train < ApplicationRecord
   has_many :railcars
 
   validates :number, presence: true
+
+  def sort_railcars
+    if sorting_from_head
+      self.railcars.sort_by { |railcar| railcar.number }
+    else
+      self.railcars.sort_by { |railcar| railcar.number }.reverse
+    end
+  end
 end
