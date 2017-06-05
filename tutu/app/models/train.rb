@@ -8,10 +8,11 @@ class Train < ApplicationRecord
   validates :number, presence: true
 
   def sort_railcars
+    sorted = self.railcars.sort_by { |railcar| railcar.number }
     if sorting_from_head
-      self.railcars.sort_by { |railcar| railcar.number }
+      sorted
     else
-      self.railcars.sort_by { |railcar| railcar.number }.reverse
+      sorted.reverse
     end
   end
 end
