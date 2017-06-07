@@ -10,7 +10,16 @@
 </p>
 
 <p>
-    <%= "Поезд: #{@railcar.train.number}" %>
+  <strong>Номер:</strong>
+  <%= @railcar.number %>
+</p>
+
+<p>
+  <strong>Поезд:</strong>
+  <%= @railcar.train.number %>
+</p>
+
+<p>
     <ul>
     <% case @railcar.type %>
     <% when "CoupeRailcar" %>

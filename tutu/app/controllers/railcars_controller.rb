@@ -13,7 +13,7 @@ class RailcarsController < ApplicationController
   end
 
   def create
-    @railcar = Railcar.new(railcar_params)
+    @railcar = Railcar.new(railcar_params).becomes(Railcar)
 
     if @railcar.save
       redirect_to @railcar
@@ -41,10 +41,12 @@ class RailcarsController < ApplicationController
   private
 
   def set_railcar
-    @railcar = Railcar.find(params[:id])
+    @railcar = Railcar.find(params[:id]).becomes(Railcar)
   end
 
   def railcar_params
-    params.require(:railcar).permit(:type, :train_id, :top_seats, :bottom_seats)
+    params.require(:railcar).permit(
+      :type, :train_id, :top_seats, :bottom_seats, :side_top_seats, :side_bottom_seats, :sitting_seats
+      )
   end
 end
