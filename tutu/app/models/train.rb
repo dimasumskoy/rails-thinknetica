@@ -13,6 +13,6 @@ class Train < ApplicationRecord
   end
 
   def show_seats(railcar_type, seat_type)
-    self.railcars.where(type: railcar_type).inject(0) { |sum, railcar| sum + railcar.send(seat_type.to_sym) }
+    Railcar.where(type: railcar_type).sum(seat_type.to_sym)
   end
 end
