@@ -6,6 +6,10 @@ class Railcar < ApplicationRecord
 
   before_validation :set_number
 
+  scope :sort, ->(direct_sorting) do 
+    direct_sorting ? order(:number) : order("number DESC")
+  end
+
   private
 
   def set_number

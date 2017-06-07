@@ -8,12 +8,8 @@ class Train < ApplicationRecord
   validates :number, presence: true
 
   def sort_railcars
-    sorted = self.railcars.order(:number)
-    if sorting_from_head
-      sorted
-    else
-      sorted.reverse
-    end
+    direction = self.sorting_from_head
+    Railcar.sort(direction)
   end
 
   def show_seats(railcar_type, seat_type)
