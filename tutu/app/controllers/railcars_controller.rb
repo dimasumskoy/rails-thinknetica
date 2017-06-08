@@ -13,10 +13,10 @@ class RailcarsController < ApplicationController
   end
 
   def create
-    @railcar = Railcar.new(railcar_params).becomes(Railcar)
+    @railcar = Railcar.new(railcar_params)
 
     if @railcar.save
-      redirect_to @railcar
+      redirect_to railcar_path(@railcar)
     else
       render :new
     end
@@ -27,7 +27,7 @@ class RailcarsController < ApplicationController
 
   def update
     if @railcar.update(railcar_params)
-      redirect_to @railcar
+      redirect_to railcar_path(@railcar)
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class RailcarsController < ApplicationController
   private
 
   def set_railcar
-    @railcar = Railcar.find(params[:id]).becomes(Railcar)
+    @railcar = Railcar.find(params[:id])
   end
 
   def railcar_params
