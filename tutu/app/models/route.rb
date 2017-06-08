@@ -4,8 +4,7 @@ class Route < ApplicationRecord
   has_many :trains
 
   validates :name, presence: true
-
-  before_validation :stations_amount
+  validate :stations_amount
 
   private
 
