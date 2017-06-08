@@ -6,12 +6,11 @@ class Railcar < ApplicationRecord
 
   before_validation :set_number, if: :need_set_number?
 
-  scope :sort_all, ->(direct_sorting) { direct_sorting ? order(:number) : order("number DESC") }
+  scope :sorted, ->(direct_sorting) { direct_sorting ? order(:number) : order("number DESC") }
 
   private
 
   def set_number
-    self.number = 1 if train.railcars.empty?
     self.number = train.railcars.maximum(:number).to_i + 1
   end
 

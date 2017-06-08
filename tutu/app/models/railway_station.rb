@@ -5,8 +5,8 @@ class RailwayStation < ApplicationRecord
 
   validates :title, presence: true
 
-  scope :position_list, ->(route) do 
-    joins(:railway_stations_routes).where(["railway_stations_routes.route_id = ?", route]).order("railway_stations_routes.station_position_id")
+  scope :sorted, ->(route) do 
+    joins(:railway_stations_routes).where(railway_stations_routes: { route_id: route }).order("railway_stations_routes.station_position_id")
   end
 
   def update_position(route, position)
