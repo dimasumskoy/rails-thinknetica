@@ -7,7 +7,7 @@ class Train < ApplicationRecord
 
   validates :number, presence: true
 
-  def sort_railcars
+  def sorted_railcars
     railcars.sort_all(self.sorting_from_head)
   end
 

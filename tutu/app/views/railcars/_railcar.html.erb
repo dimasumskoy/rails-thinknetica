@@ -1,7 +1,6 @@
 <tr>
-    <% main_railcar = railcar.becomes(Railcar) %>
     <td><%= railcar.type %></td>
-    <td><%= link_to 'Показать', main_railcar %></td>
+    <td><%= link_to 'Показать', railcar_path(railcar) %></td>
     <td><%= link_to 'Редактировать', edit_railcar_path(railcar) %></td>
-    <td><%= link_to 'Удалить', main_railcar, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+    <td><%= link_to 'Удалить', railcar_path(railcar), method: :delete, data: { confirm: 'Вы уверены?' } %></td>
 </tr>
