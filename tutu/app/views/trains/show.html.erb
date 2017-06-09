@@ -12,20 +12,16 @@
 </p>
 
 <p>
-    <% platzkart_railcars = @train.railcars.select { |railcar| railcar.kind == "плацкарт".downcase } %>
-    <% coupe_railcars = @train.railcars.select { |railcar| railcar.kind == "купе".downcase } %>
-    <%= "Плацкартных вагонов: #{platzkart_railcars.size}" %><br>
-    <%= "Купейных вагонов: #{coupe_railcars.size}" %>
-</p>
-
-<p>
-    Общее количество мест в плацкартных вагонах:
-    <%= render 'seats_amount', railcar_type: platzkart_railcars %>
-</p>
-
-<p>
-    Общее количество мест в купейных вагонах:
-    <%= render 'seats_amount', railcar_type: coupe_railcars %> 
+    Вагоны:
+    <ul>
+        <% if @train.railcars.any? %>
+            <% @sorted_railcars.each do |railcar| %>
+                <li><%= link_to "#{railcar.number}", railcar.becomes(Railcar) %></li>
+            <% end %>
+        <% else %>
+            У поезда нет вагонов
+        <% end %>
+    </ul>
 </p>
 
 <%= link_to 'Редактировать', edit_train_path(@train) %> |

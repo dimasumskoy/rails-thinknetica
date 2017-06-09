@@ -6,4 +6,12 @@ class Train < ApplicationRecord
   has_many :railcars
 
   validates :number, presence: true
+
+  def sorted_railcars
+    railcars.sorted(self.sorting_from_head)
+  end
+
+  def show_seats(railcar_type, seat_type)
+    railcars.where(type: railcar_type).sum(seat_type.to_sym)
+  end
 end

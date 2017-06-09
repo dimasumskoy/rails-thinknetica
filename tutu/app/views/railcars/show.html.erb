@@ -1,12 +1,20 @@
 <p>
   <strong>Тип:</strong>
-  <%= @railcar.kind %>
+  <%= @railcar.type %>
 </p>
 
 <p>
-    <%= "Поезд: #{@railcar.train.number}" %><br>
-	<%= "Верхние места: #{@railcar.top_seats}" %><br>
-	<%= "Нижние места: #{@railcar.bottom_seats}" %>
+  <strong>Номер:</strong>
+  <%= @railcar.number %>
+</p>
+
+<p>
+  <strong>Поезд:</strong>
+  <%= @railcar.train.number %>
+</p>
+
+<p>
+    <%= render partial: "#{@railcar.type.underscore}" %>
 </p>
 
 <%= link_to 'Редактировать', edit_railcar_path(@railcar) %> |

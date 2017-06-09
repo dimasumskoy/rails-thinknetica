@@ -6,6 +6,7 @@ class TrainsController < ApplicationController
   end
 
   def show
+    @sorted_railcars = @train.sorted_railcars
   end
 
   def new

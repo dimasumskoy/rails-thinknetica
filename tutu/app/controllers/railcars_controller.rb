@@ -16,7 +16,7 @@ class RailcarsController < ApplicationController
     @railcar = Railcar.new(railcar_params)
 
     if @railcar.save
-      redirect_to @railcar
+      redirect_to railcar_path(@railcar)
     else
       render :new
     end
@@ -27,7 +27,7 @@ class RailcarsController < ApplicationController
 
   def update
     if @railcar.update(railcar_params)
-      redirect_to @railcar
+      redirect_to railcar_path(@railcar)
     else
       render :edit
     end
@@ -45,6 +45,8 @@ class RailcarsController < ApplicationController
   end
 
   def railcar_params
-    params.require(:railcar).permit(:kind, :train_id, :top_seats, :bottom_seats)
+    params.require(:railcar).permit(
+      :type, :train_id, :top_seats, :bottom_seats, :side_top_seats, :side_bottom_seats, :sitting_seats
+      )
   end
 end
