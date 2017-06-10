@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :trains
+  resources :trains do
+    resources :railcars, shallow: true
+  end
   resources :railway_stations
-  resources :railcars
   resources :routes
 
   get 'welcome/index'

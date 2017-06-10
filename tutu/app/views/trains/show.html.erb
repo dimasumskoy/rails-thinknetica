@@ -5,14 +5,14 @@
 
 <p>
     <% if @train.route %>
-        <%= "Маршрут поезда: #{@train.route.name}" %>
+        <strong>Маршрут поезда: </strong><%= @train.route.name %>
     <% else %>
         Маршрут не назначен
     <% end %>
 </p>
 
 <p>
-    Вагоны:
+    <strong>Вагоны:</strong>
     <ul>
         <% if @train.railcars.any? %>
             <% @sorted_railcars.each do |railcar| %>
@@ -22,6 +22,10 @@
             У поезда нет вагонов
         <% end %>
     </ul>
+</p>
+
+<p>
+    <%= link_to "Добавить вагон", new_train_railcar_path(@train) %>
 </p>
 
 <%= link_to 'Редактировать', edit_train_path(@train) %> |

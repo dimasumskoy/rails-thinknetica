@@ -1,5 +1,6 @@
 class RailcarsController < ApplicationController
   before_action :set_railcar, only: [:show, :edit, :update, :destroy]
+  before_action :set_train, only: [:new, :create]
 
   def index
     @railcars = Railcar.all
@@ -13,7 +14,7 @@ class RailcarsController < ApplicationController
   end
 
   def create
-    @railcar = Railcar.new(railcar_params)
+    @railcar = @train.railcars.new(railcar_params)
 
     if @railcar.save
       redirect_to railcar_path(@railcar)
@@ -39,6 +40,10 @@ class RailcarsController < ApplicationController
   end
 
   private
+
+  def set_train
+    @train = Train.find(params[:train_id])
+  end
 
   def set_railcar
     @railcar = Railcar.find(params[:id])

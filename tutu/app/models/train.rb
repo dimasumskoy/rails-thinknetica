@@ -7,11 +7,21 @@ class Train < ApplicationRecord
 
   validates :number, presence: true
 
+  before_validation :to_first_station
+
   def sorted_railcars
     railcars.sorted(self.sorting_from_head)
   end
 
   def show_seats(railcar_type, seat_type)
     railcars.where(type: railcar_type).sum(seat_type.to_sym)
+  end
+
+  private
+
+  def to_first_station
+    if route.present?
+      self.current_station = route.railway_stations.first
+    end
   end
 end
