@@ -11,11 +11,17 @@ class RailwayStation < ApplicationRecord
 
   def update_position(route, position)
     if route.railway_stations.include?(self)
-      self.railway_stations_routes.where(route: route).update(station_position: position)
+      route_station(route).update(station_position: position)
     end
   end
 
   def position_in(route)
-    railway_stations_routes.where(route: route).first.station_position
+    route_station(route).station_position
+  end
+
+  private
+
+  def route_station(route)
+    self.railway_stations_routes.where(route: route).first
   end
 end
