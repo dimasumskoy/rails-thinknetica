@@ -14,4 +14,8 @@ class RailwayStation < ApplicationRecord
       self.railway_stations_routes.where(route: route).update(station_position: position)
     end
   end
+
+  def position_in(route)
+    railway_stations_routes.where(route: route).first.station_position
+  end
 end
