@@ -39,9 +39,10 @@
                     <% end %>
                     </td>
                     <td>
-                    <%= form_tag set_arrival_time_railway_station_path(station), method: :patch do %>
-                        <%= select_time Time.now, prefix: :arrival_time %>
-                        <%= select_time Time.now, prefix: :departure_time %>
+                    <%= form_tag set_time_railway_station_path(station), method: :patch do %>
+                        <%= select_time station.current_arrival_time(@route), prefix: :arrival_time %>
+                        <%= select_time station.current_departure_time(@route), prefix: :departure_time %>
+                        <%= hidden_field_tag :route_id, @route.id %>
                         <%= submit_tag "Изменить" %>
                     <% end %>
                     </td>

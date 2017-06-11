@@ -17,6 +17,21 @@ class RailwayStation < ApplicationRecord
     route_station(route).station_position
   end
 
+  def set_time(route, arrival, departure)
+    station = route_station(route)
+    arrival_time = "#{arrival[:hour]}:#{arrival[:minute]}"
+    departure_time = "#{departure[:hour]}:#{departure[:minute]}"
+    station.update(arrival_time: arrival_time, departure_time: departure_time)
+  end
+
+  def current_arrival_time(route)
+    route_station(route).arrival_time
+  end
+
+  def current_departure_time(route)
+    route_station(route).departure_time
+  end
+
   private
 
   def route_station(route)
