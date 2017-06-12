@@ -7,7 +7,10 @@ Rails.application.routes.draw do
     patch :set_time, on: :member
   end
   resources :routes
-  resource :search, only: [:new, :show, :edit]
+  resource :search, only: [:new, :show, :edit] do
+    get :find_route, on: :collection
+    get :results
+  end
 
   get 'welcome/index'
   root 'welcome#index'

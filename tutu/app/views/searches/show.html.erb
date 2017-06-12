@@ -1,1 +1,15 @@
 <h1>Поиск билета</h1>
+
+<p>
+    <%= form_tag find_route_search_path, method: :get do %>
+        <%= label_tag :first_station_id, 'First station:' %>
+        <%= collection_select(:stations, :first_station_id, RailwayStation.all, :id, :title) %>
+        <%= label_tag :last_station_id, 'Last station:' %>
+        <%= collection_select(:stations, :last_station_id, RailwayStation.all, :id, :title) %>
+        <%= submit_tag 'Search' %>
+    <% end %>
+</p>
+
+<p>
+    <%= @route_name %>
+</p>
