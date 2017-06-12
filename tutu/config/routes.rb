@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   end
   resources :routes
   resource :search, only: [:new, :show, :edit] do
-    get :result, on: :collection
+    get :find_route_trains, on: :collection
+    get :show_route_trains
   end
   resources :users do
     resources :tickets, shallow: true
