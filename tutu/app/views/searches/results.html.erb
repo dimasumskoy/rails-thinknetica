@@ -1,1 +1,30 @@
 <h1>Результаты поиска</h1>
+
+<p>
+    <table>
+        <thead>
+            <tr>
+                <td><b>Маршрут</b></td>
+                <td><b>Время отправления</b></td>
+                <td><b>Время прибытия</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><%= @route_name %></td>
+                <td><%= @departure_time.strftime('%H:%M') %></td>
+                <td><%= @arrival_time.strftime('%H:%M') %></td>
+            </tr>
+        </tbody>
+    </table>
+</p>
+
+<p>
+    <strong>Поезда на маршруте: </strong>
+    <ul>
+    <% @trains.each do |train| %>
+        <li><%= train.number %></li>
+    <% end %>
+    </ul>
+</p>
+

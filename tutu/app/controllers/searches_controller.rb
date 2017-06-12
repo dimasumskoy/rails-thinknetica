@@ -8,9 +8,11 @@ class SearchesController < ApplicationController
   end
 
   def results
-    if @route
+    if @route.present?
       @route_name = @route.name
       @trains = @route.trains
+      @departure_time = @route.railway_stations.first.current_departure_time(@route)
+      @arrival_time = @route.railway_stations.last.current_arrival_time(@route)
       render :results
     else
       redirect_to action: 'show'
