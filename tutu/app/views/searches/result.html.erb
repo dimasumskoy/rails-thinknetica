@@ -23,8 +23,9 @@
     <strong>Поезда на маршруте: </strong>
     <ul>
     <% @trains.each do |train| %>
-        <li><%= train.number %></li>
+        <li><%= train.number %>&nbsp;<%= link_to 'Купить билет', new_ticket_path(train_id: train.id, route_id: @route.id) %></li>
     <% end %>
     </ul>
 </p>
 
+<p></p>

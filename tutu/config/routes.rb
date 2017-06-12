@@ -8,9 +8,12 @@ Rails.application.routes.draw do
   end
   resources :routes
   resource :search, only: [:new, :show, :edit] do
-    get :find_route, on: :collection
-    get :results
+    get :result, on: :collection
   end
+  resources :users do
+    resources :tickets, shallow: true
+  end 
+  get '/new_ticket', to: 'tickets#new'
 
   get 'welcome/index'
   root 'welcome#index'
