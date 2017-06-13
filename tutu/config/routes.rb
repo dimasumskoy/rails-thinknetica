@@ -11,10 +11,8 @@ Rails.application.routes.draw do
     get :find_route_trains, on: :collection
     get :show_route_trains
   end
-  resources :users do
-    resources :tickets, shallow: true
-  end 
-  get '/new_ticket', to: 'tickets#new'
+  resources :users
+  resources :tickets
 
   get 'welcome/index'
   root 'welcome#index'

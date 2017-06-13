@@ -10,7 +10,7 @@
             <%= label_tag :last_station_id, 'Конечнная станция:' %>
             <%= collection_select(:stations, :last_station_id, RailwayStation.all, :id, :title) %>
         </p>
-        <p><%= submit_tag 'Search' %></p>
+        <p><%= submit_tag 'Поиск' %></p>
     <% end %>
 </p>
 

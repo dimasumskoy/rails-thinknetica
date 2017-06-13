@@ -1,1 +1,24 @@
-<h1>Купить билет</h1>
+<h1>Покупка билета</h1>
+
+<%= form_for @ticket do |f| %>
+    <%= f.hidden_field :train_id, { value: params[:train_id] } %>
+    <%= f.hidden_field :depart_station_id, { value: params[:depart_station_id] } %>
+    <%= f.hidden_field :arrive_station_id, { value: params[:arrive_station_id] } %>
+  <p>
+    <%= f.label :last_name, 'Имя:' %>
+    <%= f.text_field :last_name %>
+  </p>
+  <p>
+    <%= f.label :first_name, 'Фамилия:' %>
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :middle_name, 'Отчество:' %>
+    <%= f.text_field :middle_name %>
+  </p>
+  <p>
+    <%= f.label :passport_data, 'Паспортные данные:' %>
+    <%= f.text_field :passport_data %>
+  </p>
+  <%= f.submit 'Купить билет' %>
+<% end %>
