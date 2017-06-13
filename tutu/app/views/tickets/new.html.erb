@@ -17,8 +17,10 @@
     <%= f.text_field :middle_name %>
   </p>
   <p>
-    <%= f.label :passport_data, 'Паспортные данные:' %>
-    <%= f.text_field :passport_data %>
+    <%= f.label :passport_number, 'Паспортные данные:' %>
+    <%= f.text_field :passport_number %>
   </p>
   <%= f.submit 'Купить билет' %>
 <% end %>
+
+<p><%= link_to 'Назад к поиску', search_path %></p>
