@@ -6,11 +6,8 @@ Rails.application.routes.draw do
     patch :update_position, on: :member
     patch :set_time, on: :member
   end
+  resource :search, only: [:show, :create]
   resources :routes
-  resource :search, only: [:new, :show, :edit] do
-    get :find_route_trains, on: :collection
-    get :show_route_trains
-  end
   resources :users
   resources :tickets
 

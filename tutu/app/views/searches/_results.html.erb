@@ -1,7 +1,4 @@
 <h1>Результаты поиска</h1>
-<% @depart_station = @route.railway_stations.first %>
-<% @arrive_station = @route.railway_stations.last %>
-
 <p>
     <table>
         <thead>
@@ -13,9 +10,9 @@
         </thead>
         <tbody>
             <tr>
-                <td><%= @route_name %></td>
-                <td><%= @departure_time.strftime('%H:%M') %></td>
-                <td><%= @arrival_time.strftime('%H:%M') %></td>
+                <td><%= @route.name %></td>
+                <td><%= @route.first_station_time %></td>
+                <td><%= @route.last_station_time %></td>
             </tr>
         </tbody>
     </table>
@@ -24,13 +21,13 @@
 <p>
     <strong>Поезда на маршруте: </strong>
     <ul>
-    <% @trains.each do |train| %>
+    <% @route.trains.each do |train| %>
         <li>
             <%= train.number %>&nbsp;
-            <%= link_to 'Купить билет', new_ticket_path(train_id: train.id, depart_station_id: @depart_station.id, arrive_station_id: @arrive_station.id) %>
+            <%= link_to 'Купить билет', 
+                new_ticket_path(train_id: train.id, depart_station_id: @route.station_id(1), arrive_station_id: @route.station_id(2)) 
+            %>
         </li>
     <% end %>
     </ul>
 </p>
-
-<p><%= link_to 'Назад', search_path %></p>

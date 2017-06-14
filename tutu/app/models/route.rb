@@ -7,6 +7,18 @@ class Route < ApplicationRecord
 
   before_validation :set_name
 
+  def first_station_time
+    railway_stations.first.current_departure_time(self).strftime('%H:%M')
+  end
+
+  def last_station_time
+    railway_stations.last.current_arrival_time(self).strftime('%H:%M')
+  end
+
+  def station_id(position_in_route)
+    railway_stations[position_in_route.to_i - 1].id
+  end
+
   private
 
   def set_name
