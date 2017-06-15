@@ -32,6 +32,10 @@ class RailwayStation < ApplicationRecord
     route_station(route).departure_time
   end
 
+  def has_time?(route, time_type)
+    route_station(route).send(time_type.to_sym).present?
+  end
+
   private
 
   def route_station(route)

@@ -10,7 +10,7 @@ class RailcarsController < ApplicationController
   end
 
   def new
-    @railcar = Railcar.new
+    @railcar = @train.railcars.build
   end
 
   def create

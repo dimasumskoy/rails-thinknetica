@@ -9,25 +9,25 @@
             </tr>
         </thead>
         <tbody>
+        <% @routes.each do |route| %>
             <tr>
-                <td><%= @route.name %></td>
-                <td><%= @route.first_station_time %></td>
-                <td><%= @route.last_station_time %></td>
+                <td><%= route.name %></td>
+                <td><%= route.first_station_time %>
+                <td><%= route.last_station_time %>
             </tr>
+        <% end %>
         </tbody>
     </table>
 </p>
 
 <p>
-    <strong>Поезда на маршруте: </strong>
-    <ul>
-    <% @route.trains.each do |train| %>
-        <li>
-            <%= train.number %>&nbsp;
-            <%= link_to 'Купить билет', 
-                new_ticket_path(train_id: train.id, depart_station_id: @route.station_id(1), arrive_station_id: @route.station_id(2)) 
-            %>
-        </li>
+    <strong>Поезда на маршрутах: </strong>
+    <% @trains.each do |train| %>
+        <p>
+            <%= train.route.name %>
+            <ul>
+                <li><%= train.number %></li>
+            </ul>
+        </p>
     <% end %>
-    </ul>
 </p>

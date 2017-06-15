@@ -14,8 +14,8 @@
     <% end %>
 </p>
 
-<% if @route.present? %>
-    <%= render 'results', route: @route %>
+<% if @routes.present? %>
+    <%= render 'results' %>
 <% end %>
 
 <p><%= link_to 'Назад', welcome_index_path %></p>

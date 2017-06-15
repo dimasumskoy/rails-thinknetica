@@ -3,7 +3,8 @@ class SearchesController < ApplicationController
   end
 
   def create
-    @route = Route.find_route(first_station_id, last_station_id)
+    @routes = Route.find_route(first_station_id, last_station_id)
+    @trains = @routes.map { |route| route.trains }.flatten
     render :show
   end
 
