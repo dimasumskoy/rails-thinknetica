@@ -12,10 +12,6 @@ class Route < ApplicationRecord
     routes.select { |route| route.railway_stations.where(id: [first_station_id, last_station_id]) }
   end
 
-  def show_train_numbers
-    trains.map { |train| puts train.number }
-  end
-
   def first_station_time
     if railway_stations.first.has_time?(self, 'departure_time')
       railway_stations.first.current_departure_time(self).strftime('%H:%M')
