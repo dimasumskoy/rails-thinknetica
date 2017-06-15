@@ -7,8 +7,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(ticket_params)
-    @user = User.new(user_params)
-    @ticket.user = @user
+    @ticket.user = User.first
 
     if @ticket.save
       redirect_to @ticket

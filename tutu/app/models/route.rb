@@ -7,6 +7,10 @@ class Route < ApplicationRecord
 
   before_validation :set_name
 
+  def self.find_route(first_station_id, last_station_id)
+    all.select { |route| route.railway_station_ids == [first_station_id, last_station_id] }.first
+  end
+
   def first_station_time
     railway_stations.first.current_departure_time(self).strftime('%H:%M')
   end

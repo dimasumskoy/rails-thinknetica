@@ -3,7 +3,7 @@ class SearchesController < ApplicationController
   end
 
   def create
-    @route = RailwayStation.find_route(first_station_id, last_station_id)
+    @route = Route.find_route(first_station_id, last_station_id)
     render :show
   end
 

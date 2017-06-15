@@ -7,10 +7,6 @@ class RailwayStation < ApplicationRecord
 
   scope :ordered, -> { joins(:railway_stations_routes).order("railway_stations_routes.station_position").uniq }
 
-  def self.find_route(first_station_id, last_station_id)
-    Route.all.select { |route| route.railway_station_ids == [first_station_id, last_station_id] }.first
-  end
-
   def update_position(route, position)
     if route.railway_stations.include?(self)
       route_station(route).update(station_position: position)
