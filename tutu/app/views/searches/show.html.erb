@@ -1,0 +1,21 @@
+<h1>Поиск билета</h1>
+
+<p>
+    <%= form_tag search_path, method: :post do %>
+        <p>
+            <%= label_tag :first_station_id, 'Начальная станция:' %>
+            <%= collection_select(:stations, :first_station_id, RailwayStation.all, :id, :title) %>
+        </p>
+        <p>
+            <%= label_tag :last_station_id, 'Конечнная станция:' %>
+            <%= collection_select(:stations, :last_station_id, RailwayStation.all, :id, :title) %>
+        </p>
+        <p><%= submit_tag 'Поиск' %></p>
+    <% end %>
+</p>
+
+<% if @routes.present? %>
+    <%= render 'results' %>
+<% end %>
+
+<p><%= link_to 'Назад', welcome_index_path %></p>

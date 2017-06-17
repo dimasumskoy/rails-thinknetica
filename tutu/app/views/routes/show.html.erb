@@ -18,15 +18,41 @@
 
 <p>
     <strong>Станции в маршруте:</strong>
-    <ul>
-        <% if @route.railway_stations.any? %>
-            <% @route.railway_stations.each do |station| %>
-                <li><%= station.title %></li>
+    <% if @route.railway_stations.any? %>
+        <table>
+            <thead>
+                <tr>
+                    <td>Название</td>
+                    <td>Позиция</td>
+                    <td>Время прибытия/отправления</td>
+                </tr>
+            </thead>
+            <tbody>
+            <% @route.railway_stations.ordered.each do |station| %>
+                <tr>
+                    <td><%= station.title %></td>
+                    <td>
+                    <%= form_tag update_position_railway_station_path(station), method: :patch do %>
+                        <%= number_field_tag :position, station.position_in(@route) %>
+                        <%= hidden_field_tag :route_id, @route.id %>
+                        <%= submit_tag "Изменить" %>
+                    <% end %>
+                    </td>
+                    <td>
+                    <%= form_tag set_time_railway_station_path(station), method: :patch do %>
+                        <%= select_time station.current_arrival_time(@route), prefix: :arrival_time %>
+                        <%= select_time station.current_departure_time(@route), prefix: :departure_time %>
+                        <%= hidden_field_tag :route_id, @route.id %>
+                        <%= submit_tag "Изменить" %>
+                    <% end %>
+                    </td>
+                </tr>
             <% end %>
-        <% else %>
-            Станций в маршруте нет
-        <% end %>
-    </ul>
+            </tbody>
+        </table>
+    <% else %>
+        Станций в маршруте нет
+    <% end %>
 </p>
 
 <%= link_to 'Редактировать', edit_route_path(@route) %> |
