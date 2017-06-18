@@ -1,0 +1,17 @@
+<%= form_with(model: route, url: url_path) do |form| %>
+  <%= render 'common/errors', resource: route %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :route_name %>
+  </div>
+
+  <div class="field">
+	<%= form.label :railway_station_ids %>
+	<%= form.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true } %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

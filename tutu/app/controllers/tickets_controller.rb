@@ -5,18 +5,17 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new
   end
 
+  def show
+  end
+
   def create
     @ticket = Ticket.new(ticket_params)
-    @ticket.user = User.first
 
     if @ticket.save
       redirect_to @ticket
     else
       render :new
     end
-  end
-
-  def show
   end
 
   private

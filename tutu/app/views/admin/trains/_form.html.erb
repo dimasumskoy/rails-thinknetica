@@ -1,0 +1,17 @@
+<%= form_with(model: train, url: url_path) do |form| %>
+  <%= render 'common/errors', resource: train %>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number, id: :train_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :route %>
+    <%= form.collection_select :route_id, Route.all, :id, :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
