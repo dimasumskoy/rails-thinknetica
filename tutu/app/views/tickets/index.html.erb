@@ -10,7 +10,7 @@
   </thead>
 
   <tbody>
-  <% @tickets.each do |ticket| %>
+  <% current_user.tickets.each do |ticket| %>
     <tr>
         <td><%= "#{ticket.depart_station.title} - #{ticket.arrive_station.title}" %></td>
         <td><%= "#{ticket.last_name} #{ticket.first_name} #{ticket.middle_name}" %>

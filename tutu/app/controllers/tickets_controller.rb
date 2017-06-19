@@ -1,12 +1,11 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show]
+  before_action :set_ticket, only: [:show, :destroy]
 
   def index
-    @tickets = current_user.tickets
   end
 
   def new
-    @ticket = Ticket.new
+    @ticket = current_user.tickets.new
   end
 
   def show
@@ -23,16 +22,21 @@ class TicketsController < ApplicationController
     end
   end
 
+  def destroy
+    @user_ticket.destroy
+    redirect_to tickets_path(current_user.tickets)
+  end
+
   private
 
   def stations_time
-    route = @ticket.train.route
+    route = @user_ticket.train.route
     @depart_station_time = route.railway_stations.first.current_departure_time(route).strftime('%H:%M')
     @arrive_station_time = route.railway_stations.last.current_arrival_time(route).strftime('%H:%M')
   end
 
   def set_ticket
-    @ticket = Ticket.find(params[:id])
+    @user_ticket = current_user.tickets.find(params[:id])
   end
 
   def ticket_params
