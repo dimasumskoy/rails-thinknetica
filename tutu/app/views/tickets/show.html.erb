@@ -1,17 +1,25 @@
 <h1>Информация о билете</h1>
 
 <p>
-    <b>Маршрут: </b> <%= "#{@ticket.depart_station.title} - #{@ticket.arrive_station.title}" %>
+    <b>Маршрут: </b><%= "#{@ticket.depart_station.title} - #{@ticket.arrive_station.title}" %>
 </p>
 
 <p>
-    <b>Номер поезда: </b> <%= @ticket.train.number %>
+    <b>Время отправления: </b><%= @depart_station_time %>
 </p>
 
 <p>
-    <b>Пассажир: </b> <%= "#{@ticket.last_name} #{@ticket.first_name} #{@ticket.middle_name}" %>
+    <b>Время прибытия: </b><%= @arrive_station_time %>
 </p>
 
 <p>
-    <b>Серия/номер паспорта: </b> <%= @ticket.passport_number %>
+    <b>Номер поезда: </b><%= @ticket.train.number %>
+</p>
+
+<p>
+    <b>Пассажир: </b><%= "#{@ticket.last_name} #{@ticket.first_name} #{@ticket.middle_name}" %>
+</p>
+
+<p>
+    <b>Серия/номер паспорта: </b><%= @ticket.passport_number %>
 </p>

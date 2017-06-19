@@ -8,8 +8,7 @@ class Route < ApplicationRecord
   before_validation :set_name
 
   def self.find_route(first_station_id, last_station_id)
-    routes = joins(:railway_stations_routes).where(railway_stations_routes: { railway_station_id: [first_station_id, last_station_id] }).uniq
-    routes.select { |route| route.railway_stations.where(id: [first_station_id, last_station_id]) }
+    joins(:railway_stations_routes).where(railway_stations_routes: { railway_station_id: [first_station_id, last_station_id] }).uniq
   end
 
   def first_station_time

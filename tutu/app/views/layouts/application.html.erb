@@ -13,7 +13,10 @@
     <p class="alert"><%= alert %></p>
 
     <% if user_signed_in? %>
-      <p align="right"><%= link_to 'Выйти', destroy_user_session_path, method: :delete %></p>
+      <p align="right">
+        <%= link_to 'Выйти', destroy_user_session_path, method: :delete %><br>
+        <%= link_to 'Мои билеты', tickets_path(current_user.tickets) %>
+      </p>
     <% else %>
       <p align="right"><%= link_to 'Войти', new_user_session_path %></p>
     <% end %>
