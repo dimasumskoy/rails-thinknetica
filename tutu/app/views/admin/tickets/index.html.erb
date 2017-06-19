@@ -1,0 +1,26 @@
+<h1>Все купленные билеты</h1>
+
+<table>
+  <thead>
+    <tr>
+      <td><b>Маршрут</b></td>
+      <td><b>ФИО Пассажира</b></td>
+      <td><b>Действия</b></td>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @tickets.each do |ticket| %>
+    <tr>
+        <td><%= "#{ticket.depart_station.title} - #{ticket.arrive_station.title}" %></td>
+        <td><%= "#{ticket.last_name} #{ticket.first_name} #{ticket.middle_name}" %>
+        <td><%= link_to 'Показать', admin_ticket_path(ticket) %></td>
+        <td><%= link_to 'Редактировать', edit_admin_ticket_path(ticket) %></td>
+        <td><%= link_to 'Удалить', admin_ticket_path(ticket), method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<p><%= link_to 'Создать билет', new_admin_ticket_path %></p>
+<p><%= link_to 'Назад', admin_root_path %></p>

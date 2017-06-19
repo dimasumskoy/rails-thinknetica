@@ -1,0 +1,6 @@
+<tr>
+    <td><%= railcar.type %></td>
+    <td><%= link_to 'Показать', admin_railcar_path(railcar) %></td>
+    <td><%= link_to 'Редактировать', edit_admin_railcar_path(railcar) %></td>
+    <td><%= link_to 'Удалить', admin_railcar_path(railcar), method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+</tr>

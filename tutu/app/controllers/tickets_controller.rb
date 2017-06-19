@@ -1,13 +1,19 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show]
+  before_action :set_ticket, only: [:show, :destroy]
+
+  def index
+  end
 
   def new
-    @ticket = Ticket.new
+    @ticket = current_user.tickets.new
+  end
+
+  def show
+    stations_time
   end
 
   def create
-    @ticket = Ticket.new(ticket_params)
-    @ticket.user = User.first
+    @ticket = current_user.tickets.new(ticket_params)
 
     if @ticket.save
       redirect_to @ticket
@@ -16,17 +22,21 @@ class TicketsController < ApplicationController
     end
   end
 
-  def show
+  def destroy
+    @user_ticket.destroy
+    redirect_to tickets_path(current_user.tickets)
   end
 
   private
 
-  def user_params
-    params.require(:ticket).permit(:first_name, :last_name)
+  def stations_time
+    route = @user_ticket.train.route
+    @depart_station_time = route.railway_stations.first.current_departure_time(route).strftime('%H:%M')
+    @arrive_station_time = route.railway_stations.last.current_arrival_time(route).strftime('%H:%M')
   end
 
   def set_ticket
-    @ticket = Ticket.find(params[:id])
+    @user_ticket = current_user.tickets.find(params[:id])
   end
 
   def ticket_params

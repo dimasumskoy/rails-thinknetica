@@ -9,6 +9,19 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <% if user_signed_in? %>
+      <p align="right">
+        <%= "Профиль: #{current_user.first_name}, email: #{current_user.email}" %><br>
+        <%= link_to 'Мои билеты', tickets_path(current_user.tickets) %><br>
+        <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
+      </p>
+    <% else %>
+      <p align="right"><%= link_to 'Войти', new_user_session_path %></p>
+    <% end %>
+
     <%= yield %>
     <%= render 'common/footer' %>
   </body>

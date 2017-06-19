@@ -1,18 +1,24 @@
 Rails.application.routes.draw do
-  resources :trains do
-    resources :railcars, shallow: true
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+  
+  namespace :admin do
+    resources :trains do
+      resources :railcars, shallow: true
+    end
+    resources :railway_stations do
+      patch :update_position, on: :member
+      patch :set_time, on: :member
+    end
+    resources :routes
+    resources :tickets
+
+    root to: 'resource_managment#index'
   end
-  resources :railway_stations do
-    patch :update_position, on: :member
-    patch :set_time, on: :member
-  end
-  resource :search, only: [:show, :create]
-  resources :routes
+
   resources :users
   resources :tickets
+  resource :search, only: [:show, :create]
 
   get 'welcome/index'
-  root 'welcome#index'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'welcome#index'
 end

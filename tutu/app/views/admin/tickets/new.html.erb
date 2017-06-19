@@ -1,0 +1,29 @@
+<h1>Новый билет</h1>
+
+<%= form_with(model: [:admin, @ticket]) do |form| %>
+  <div class="field">
+    <%= form.label :train %>
+    <%= form.collection_select :train_id, Train.all, :id, :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :depart_station %>
+    <%= form.collection_select :depart_station_id, RailwayStation.all, :id, :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :arrive_station %>
+    <%= form.collection_select :arrive_station_id, RailwayStation.all, :id, :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user %>
+    <%= form.collection_select :user_id, User.all, :id, :last_name %>
+  </div>
+
+  <%= render 'common/user_data', form: form %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
