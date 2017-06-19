@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
     resources :routes
     resources :tickets
+
+    root to: 'resource_managment#index'
   end
 
   resources :users
@@ -18,5 +20,5 @@ Rails.application.routes.draw do
   resource :search, only: [:show, :create]
 
   get 'welcome/index'
-  root 'welcome#index'
+  root to: 'welcome#index'
 end
