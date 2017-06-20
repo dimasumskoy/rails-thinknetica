@@ -1,0 +1,46 @@
+ru:
+  activerecord:
+    models:
+      railway_station: "Станция"
+      route: "Маршрут"
+      train: "Поезд"
+      railcar: "Вагон"
+      coupe_railcar: "Купе"
+      economy_railcar: "Плацкарт"
+      comfort_railcar: "СВ"
+      sitting_railcar: "Сидячий"
+      ticket: "Билет"
+      user: "Пользователь"
+    attributes:
+      railway_station:
+        title: "Название"
+      route:
+        name: "Название"
+        railway_station_ids: "Станции маршрута"
+      train:
+        number: "Номер"
+      railcar:
+        number: "Номер"
+        type: "Тип вагона"
+        top_seats: "Верхние места"
+        bottom_seats: "Нижние места"
+        side_top_seats: "Боковые верхние места"
+        side_bottom_seats: "Боковые нижние места"
+        sitting_seats: "Сидячие места"
+      ticket:
+        train: "Поезд"
+        depart_station: "Станция отправления"
+        arrive_station: "Станция прибытия"
+        user: "Пассажир"
+    errors:
+      models:
+        railway_station:
+          attributes:
+            title:
+              blank: "должно быть указано"
+        train:
+          attributes:
+            number:
+              blank: "должен быть указан"
+        railcar:
+          blank: "должны быть указаны"

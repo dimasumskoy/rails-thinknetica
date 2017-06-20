@@ -1,2 +1,19 @@
 ru:
-  hello: 'hello world'
+  common:
+    back: "Назад"
+  admin:
+    railway_stations:
+      form:
+        submit: "%{action} станцию"
+    trains:
+      form:
+        submit: "%{action} поезд"
+    railcars:
+      form:
+        submit: "%{action} вагон"
+    routes:
+      form:
+        submit: "%{action} маршрут"
+    tickets:
+      new:
+        submit: "%{action} билет"

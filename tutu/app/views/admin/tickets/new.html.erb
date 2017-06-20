@@ -1,6 +1,6 @@
 <h1>Новый билет</h1>
 
-<%= form_with(model: [:admin, @ticket]) do |form| %>
+<%= form_for [:admin, @ticket] do |form| %>
   <div class="field">
     <%= form.label :train %>
     <%= form.collection_select :train_id, Train.all, :id, :number %>
@@ -24,6 +24,6 @@
   <%= render 'common/user_data', form: form %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit t('.submit', action: @ticket.new_record? ? 'Создать' : 'Изменить') %>
   </div>
 <% end %>
