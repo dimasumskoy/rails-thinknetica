@@ -1,7 +1,7 @@
 <h1>Результаты поиска</h1>
 
 <p>
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <td><b>Маршрут</b></td>
@@ -24,11 +24,11 @@
 <p><strong>Поезда на маршрутах: </strong>
 <% @trains.each do |train| %>
     <p><%= train.route.name %>
-        <ul>
+        <ul class="list-group">
             <li><%= train.number %>&nbsp;
                 <%= link_to 'Купить билет', new_ticket_path(
                     train_id: train.id, depart_station_id: train.route.railway_stations.first, arrive_station_id: train.route.railway_stations.last
-                ) %>
+                ), class: 'btn btn-primary btn-xs' %>
             </li>
         </ul>
     </p>

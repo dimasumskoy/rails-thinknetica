@@ -4,3 +4,41 @@
   Static version of css will use Glyphicons sprites by default
   =require twitter-bootstrap-static/sprites
 */
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body { 
+  padding-top: 20px;
+  margin-bottom: 100px;
+}
+
+.log-in-page, .form-group {
+  width: 50%;
+  max-width: 50%;
+}
+
+a.search-ticket-button {
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 5px;
+  color: #000;
+  font-size: 1.2em;
+  line-height: 50px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 2em;
+  margin-top: 50px;
+}
+
+.container .text-muted {
+  margin: 20px 0;
+}

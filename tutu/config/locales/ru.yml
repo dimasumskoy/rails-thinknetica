@@ -17,3 +17,7 @@ ru:
         submit: "%{action} билет"
   common:
     errors: "При заполнении формы возникли ошибки:"
+  devise:
+    sessions:
+      new:
+        log_in: "Войти"
