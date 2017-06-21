@@ -21,3 +21,14 @@ ru:
     sessions:
       new:
         log_in: "Войти"
+        password: "Пароль"
+        remember_me: "Запомнить меня"
+  users:
+    registrations:
+      new:
+        sign_up: "Зарегистрироваться"
+        password: "Пароль"
+        first_name: "Имя"
+        last_name: "Фамилия"
+        password_confirmation: "Подтверждение пароля"
+        min_characters: "символов минимум"
