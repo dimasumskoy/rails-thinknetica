@@ -32,3 +32,8 @@ ru:
         last_name: "Фамилия"
         password_confirmation: "Подтверждение пароля"
         min_characters: "символов минимум"
+  searches:
+    show:
+      search_first_station: "Станция отправления"
+      search_last_station: "Станция прибытия"
+      search_button: "Поиск"
