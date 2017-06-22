@@ -5,7 +5,11 @@ class TicketsController < ApplicationController
   end
 
   def new
-    @ticket = current_user.tickets.new
+    if user_signed_in?
+      @ticket = current_user.tickets.new
+    else
+      render :new
+    end
   end
 
   def show

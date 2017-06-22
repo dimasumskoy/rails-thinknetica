@@ -1,23 +1,23 @@
 <p>
-    <b>Маршрут: </b><%= "#{ticket.depart_station.title} - #{ticket.arrive_station.title}" %>
+    <h4><small>Маршрут: </small><%= "#{ticket.depart_station.title} - #{ticket.arrive_station.title}" %></h4>
 </p>
 
 <p>
-    <b>Время отправления: </b><%= @depart_station_time %>
+    <h4><small>Время отправления: </small><%= @depart_station_time %></h4>
 </p>
 
 <p>
-    <b>Время прибытия: </b><%= @arrive_station_time %>
+    <h4><small>Время прибытия: </small><%= @arrive_station_time %></h4>
 </p>
 
 <p>
-    <b>Номер поезда: </b><%= ticket.train.number %>
+    <h4><small>Номер поезда: </small><%= ticket.train.number %></h4>
 </p>
 
 <p>
-    <b>Пассажир: </b><%= "#{ticket.last_name} #{ticket.first_name} #{ticket.middle_name}" %>
+    <h4><small>Пассажир: </small><%= "#{ticket.last_name} #{ticket.first_name} #{ticket.middle_name}" %></h4>
 </p>
 
 <p>
-    <b>Серия/номер паспорта: </b><%= ticket.passport_number %>
+    <h4><small>Серия/номер паспорта: </small><%= ticket.passport_number %></h4>
 </p>

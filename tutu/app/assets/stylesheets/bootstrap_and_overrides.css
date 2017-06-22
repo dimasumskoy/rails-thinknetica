@@ -10,23 +10,22 @@ html {
   min-height: 100%;
 }
 
-body { 
-  padding-top: 20px;
-  margin-bottom: 100px;
+body {
+  padding-top: 50px;
+  margin-bottom: 150px !important;
 }
 
-.log-in-page, .form-group {
+a {
+  font-size: 110%;
+}
+
+strong, b {
+  font-size: 120%;
+}
+
+.form-control {
   width: 50%;
   max-width: 50%;
-}
-
-a.search-ticket-button {
-  border: 1px solid black;
-  padding: 10px;
-  border-radius: 5px;
-  color: #000;
-  font-size: 1.2em;
-  line-height: 50px;
 }
 
 #footer {
@@ -36,9 +35,4 @@ a.search-ticket-button {
   width: 100%;
   background-color: #f5f5f5;
   padding: 2em;
-  margin-top: 50px;
-}
-
-.container .text-muted {
-  margin: 20px 0;
 }

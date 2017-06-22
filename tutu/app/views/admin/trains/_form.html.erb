@@ -3,15 +3,15 @@
 
   <div class="field">
     <%= form.label :number %>
-    <%= form.text_field :number, id: :train_number %>
+    <%= form.text_field :number, id: :train_number, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :route %>
-    <%= form.collection_select :route_id, Route.all, :id, :name %>
+    <%= form.collection_select :route_id, Route.all, :id, :name, {}, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit t('.submit', action: train.new_record? ? 'Создать' : 'Изменить') %>
+    <%= form.submit t('.submit', action: train.new_record? ? 'Создать' : 'Изменить'), class: "btn btn-default" %>
   </div>
 <% end %>

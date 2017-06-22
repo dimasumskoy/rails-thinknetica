@@ -1,7 +1,7 @@
 <h1>Результаты поиска</h1>
 
 <p>
-    <table class="table">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <td><b>Маршрут</b></td>
@@ -13,8 +13,8 @@
         <% @routes.each do |route| %>
             <tr>
                 <td><%= route.name %></td>
-                <td><%= route.first_station_time %>
-                <td><%= route.last_station_time %>
+                <td><%= route.first_station_time %></td>
+                <td><%= route.last_station_time %></td>
             </tr>
         <% end %>
         </tbody>
@@ -22,15 +22,31 @@
 </p>
 
 <p><strong>Поезда на маршрутах: </strong>
-<% @trains.each do |train| %>
-    <p><%= train.route.name %>
-        <ul class="list-group">
-            <li><%= train.number %>&nbsp;
-                <%= link_to 'Купить билет', new_ticket_path(
-                    train_id: train.id, depart_station_id: train.route.railway_stations.first, arrive_station_id: train.route.railway_stations.last
-                ), class: 'btn btn-primary btn-xs' %>
-            </li>
-        </ul>
-    </p>
-<% end %>
+    <table class="table table-hover">
+    <% @routes.each do |route| %>
+        <thead>
+            <tr>
+                <td><b><small><%= route.name %></small></b></td>
+            </tr>
+        </thead>
+        <tbody>
+        <% if route.trains.any? %>
+            <% route.trains.each do |train| %>
+                <tr>
+                    <td>
+                        <%= train.number %>&nbsp;
+                        <%= link_to 'Купить билет', new_ticket_path(
+                            train_id: train.id, depart_station_id: train.route.railway_stations.first, arrive_station_id: train.route.railway_stations.last
+                        ), class: 'btn btn-primary btn-xs' %>
+                    </td>
+                </tr>
+            <% end %>
+        <% else %>
+            <tr>
+                <td><p>Поездов на маршруте нет</p></td>
+            </tr>
+        <% end %>
+        </tbody>
+    <% end %>
+    </table>
 </p>

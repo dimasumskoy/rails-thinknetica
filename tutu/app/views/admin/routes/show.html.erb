@@ -1,14 +1,13 @@
-<p>
-  <strong>Маршрут:</strong>
-  <%= @route.name %>
-</p>
+<div calss="page-header">
+  <h3><small>Маршрут: </small><%= @route.name %></h3>
+</div>
 
 <p>
     <strong>Поезда на маршруте:</strong>
-    <ul>
+    <ul class="list-group">
         <% if @route.trains.any? %>
             <% @route.trains.each do |train| %>
-                <li><%= train.number %></li>
+                <li class="list-group-item"><%= train.number %></li>
             <% end %>
         <% else %>
             Поездов на маршруте нет
@@ -19,7 +18,7 @@
 <p>
     <strong>Станции в маршруте:</strong>
     <% if @route.railway_stations.any? %>
-        <table>
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <td>Название</td>
@@ -33,9 +32,9 @@
                     <td><%= station.title %></td>
                     <td>
                     <%= form_tag update_position_admin_railway_station_path(station), method: :patch do %>
-                        <%= number_field_tag :position, station.position_in(@route) %>
+                        <%= number_field_tag :position, station.position_in(@route), class: 'form-control' %>
                         <%= hidden_field_tag :route_id, @route.id %>
-                        <%= submit_tag "Изменить" %>
+                        <%= submit_tag "Изменить", class: "btn btn-default btn-xs" %>
                     <% end %>
                     </td>
                     <td>
