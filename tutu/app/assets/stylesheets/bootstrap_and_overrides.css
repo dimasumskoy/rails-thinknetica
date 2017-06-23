@@ -23,15 +23,6 @@ strong, b {
   font-size: 120%;
 }
 
-.user-info {
-  display: inline-block;
-  float: right;
-}
-.user-info p {
-  color: #999;
-  margin: 5px;
-}
-
 .form-control {
   width: 50%;
   max-width: 50%;
