@@ -59,6 +59,16 @@
                 <li><%= link_to 'Войти', new_user_session_path %></li>
               <% end %>
               </ul>
+              <% if user_signed_in? %>
+                <div class="user-info">
+                <% if current_user.admin? %>
+                  <p>Профиль: <%= current_user.first_name %> (admin)</p>
+                <% else %>
+                  <p>Профиль: <%= current_user.first_name %></p>
+                <% end %>
+                <p>Email: <%= current_user.email %></p>
+                </div>
+              <% end %>
             </div><!--/.nav-collapse -->
           </div>
         </div>
