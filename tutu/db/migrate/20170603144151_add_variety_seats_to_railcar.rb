@@ -4,6 +4,5 @@ class AddVarietySeatsToRailcar < ActiveRecord::Migration[5.1]
     add_column :railcars, :side_top_seats, :integer
     add_column :railcars, :side_bottom_seats, :integer
     add_column :railcars, :sitting_seats, :integer
-    rename_column :railcars, :kind, :type
   end
 end
