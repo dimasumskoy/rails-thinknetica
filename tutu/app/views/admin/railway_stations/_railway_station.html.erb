@@ -1,6 +1,6 @@
 <tr>
     <td>
-        <p id="station_title_<%= railway_station.id %>"><%= railway_station.title %></p>
+        <p id="station-title-<%= railway_station.id %>"><%= railway_station.title %></p>
         <%= render 'form', railway_station: railway_station, hide: true %>
     </td>
     <td><%= link_to 'Показать', admin_railway_station_path(railway_station) %></td>

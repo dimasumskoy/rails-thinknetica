@@ -1,10 +1,10 @@
 $(document).on('turbolinks:load', function() {
-    $('a.edit-station').click(function(e) {
+    $('.edit-train').click(function(e) {
         e.preventDefault();
         var edit = $(this);
-        var station_id = edit.data('stationId');
-        var form = $('#edit_railway_station_' + station_id);
-        var title = $('#station-title-' + station_id);
+        var train_id = edit.data('trainId');
+        var form = $('#edit_train_' + train_id);
+        var number = $('#number-train-' + train_id);
 
         if (!edit.hasClass('cancel')) {
             edit.html('Отмена');
@@ -15,6 +15,6 @@ $(document).on('turbolinks:load', function() {
         }
 
         form.toggle();
-        title.toggle();
+        number.toggle();
     });
 });
