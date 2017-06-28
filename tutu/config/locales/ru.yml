@@ -37,3 +37,8 @@ ru:
       search_first_station: "Станция отправления"
       search_last_station: "Станция прибытия"
       search_button: "Поиск"
+  tickets_mailer:
+    buy_ticket:
+      buy_mail_subject: "Покупка билета"
+    cancel_ticket:
+      cancel_mail_subject: "Отмена покупки билета"
