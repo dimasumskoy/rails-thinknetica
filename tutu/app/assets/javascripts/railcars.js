@@ -1,8 +1,7 @@
 $(document).on('turbolinks:load', function() {
-    $('.field').hide();
     $('select').change(function() {
         var type = $(this).val().toLowerCase();
-        $('.field').hide();
+        $('form > div.field').not('.' + type).hide();
         $('div.' + type).show();
     });
 });

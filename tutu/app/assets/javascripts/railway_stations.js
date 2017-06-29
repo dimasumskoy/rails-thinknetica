@@ -2,18 +2,13 @@ $(document).on('turbolinks:load', function() {
     $('a.edit-station').click(function(e) {
         e.preventDefault();
         var edit = $(this);
-        var station_id = edit.data('stationId');
-        var form = $('#edit_railway_station_' + station_id);
-        var title = $('#station-title-' + station_id);
+        var stationId = edit.data('stationId');
+        var form = $('#edit_railway_station_' + stationId);
+        var title = $('#station-title-' + stationId);
+        var text = edit.hasClass('cancel') ? 'Редактировать' : 'Отмена';
 
-        if (!edit.hasClass('cancel')) {
-            edit.html('Отмена');
-            edit.addClass('cancel');
-        } else {
-            edit.html('Редактировать');
-            edit.removeClass('cancel');
-        }
-
+        edit.html(text);
+        edit.toggleClass('cancel');
         form.toggle();
         title.toggle();
     });

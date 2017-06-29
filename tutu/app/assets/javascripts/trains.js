@@ -1,19 +1,14 @@
 $(document).on('turbolinks:load', function() {
-    $('.edit-train').click(function(e) {
+    $('a.edit-train').click(function(e) {
         e.preventDefault();
         var edit = $(this);
-        var train_id = edit.data('trainId');
-        var form = $('#edit_train_' + train_id);
-        var number = $('#number-train-' + train_id);
+        var trainId = edit.data('trainId');
+        var form = $('#edit_train_' + trainId);
+        var number = $('#number-train-' + trainId);
+        var text = edit.hasClass('cancel') ? 'Редактировать' : 'Отмена';
 
-        if (!edit.hasClass('cancel')) {
-            edit.html('Отмена');
-            edit.addClass('cancel');
-        } else {
-            edit.html('Редактировать');
-            edit.removeClass('cancel');
-        }
-
+        edit.html(text);
+        edit.toggleClass('cancel');
         form.toggle();
         number.toggle();
     });
